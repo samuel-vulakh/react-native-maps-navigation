@@ -1,5 +1,5 @@
 {
-  "name": "react-native-maps-navigation",
+  "name": "react-native-maps-navigation-ts",
   "version": "0.0.14",
   "description": "A helper and component library for react-native-maps that enables navigation support",
   "main": "index.js",
@@ -22,10 +22,10 @@
   "author": "Andy Schwarz <flyandi@yahoo.com> (http://flyandi.net)",
   "license": {
     "type": "MIT",
-    "url": "https://github.com/flyandi/react-native-maps-navigation/blob/master/LICENSE"
+    "url": "https://github.com/samuel-vulakh/react-native-maps-navigation/blob/master/LICENSE"
   },
   "bugs": {
-    "url": "https://github.com/flyandi/react-native-maps-navigation/issues"
+    "url": "https://github.com/samuel-vulakh/react-native-maps-navigation/issues"
   },
   "scripts": {
     "test": "jest"
@@ -40,6 +40,7 @@
     "react-native-maps": ">=0.21.0"
   },
   "dependencies": {
+    "@react-native-community/geolocation": "^3.4.0",
     "geolib": "^3.0.2",
     "prop-types": "^15.6.2",
     "react-native-optiongroup": "^0.0.7"

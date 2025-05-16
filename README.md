@@ -1,4 +1,8 @@
-# react-native-maps-navigation
+# react-native-maps-navigation-ts
+
+Fork of [this repo](https://github.com/flyandi/react-native-maps-navigation)
+
+Fixed issues and added TS support
 
 Enhances React Native Maps with Realtime Navigation.
 
