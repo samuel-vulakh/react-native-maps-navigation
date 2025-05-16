@@ -1,7 +1,7 @@
 /**
  * @imports
  */
-import { StyleSheet } from "react-native";
+import { StyleSheet } from 'react-native';
 
 interface CloseButtonStyleProps {
   size: number;
@@ -18,10 +18,10 @@ export default (props: CloseButtonStyleProps) =>
      * @maneuverView
      */
     closeButtonText: {
-      fontFamily: "Navigation",
-      fontSize: props.size,
       color: props.color,
+      fontFamily: 'Navigation',
+      fontSize: props.size,
       opacity: props.opacity,
-      textAlign: "center",
+      textAlign: 'center',
     },
   });

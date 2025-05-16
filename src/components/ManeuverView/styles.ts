@@ -1,7 +1,7 @@
 /**
  * @imports
  */
-import { StyleSheet } from "react-native";
+import { StyleSheet } from 'react-native';
 
 interface ManeuverViewStyleProps {
   backgroundColor: string;
@@ -15,29 +15,28 @@ export default (props: ManeuverViewStyleProps) =>
     /**
      * @maneuverView
      */
+    maneuverClose: {
+      alignItems: 'flex-end',
+      flex: 0,
+      justifyContent: 'flex-end',
+      width: 30,
+    },
     maneuverView: {
-      padding: 15,
+      alignItems: 'center',
       backgroundColor: props.backgroundColor,
-      flexDirection: "row",
+      flexDirection: 'row',
       minHeight: 120,
-      alignItems: "center",
+      padding: 15,
     },
 
     maneuverViewArrow: {
+      alignItems: 'center',
       flex: 0,
+      justifyContent: 'center',
       width: 80,
-      justifyContent: "center",
-      alignItems: "center",
     },
 
     maneuverViewDirection: {
       flex: 1,
-    },
-
-    maneuverClose: {
-      flex: 0,
-      width: 30,
-      justifyContent: "flex-end",
-      alignItems: "flex-end",
     },
   });

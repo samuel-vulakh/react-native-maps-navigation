@@ -28,26 +28,26 @@ export const BICYCLING = 'BICYCLING';
  * @type {*[]}
  */
 export const MODE_MAPPING = {
-    [DRIVING]: {
-        mode: DRIVING,
-        name: 'Driving',
-        icon: NavigationIcons.directionsDriving,
-    },
-    [WALKING]: {
-        mode: WALKING,
-        name: 'Walking',
-        icon: NavigationIcons.directionsWalk,
-    },
-    [TRANSIT]: {
-        mode: TRANSIT,
-        name: 'Transit',
-        icon: NavigationIcons.directionsTransit,
-    },
-    [BICYCLING]: {
-        mode: BICYCLING,
-        name: 'Bicycling',
-        icon: NavigationIcons.directionsBike,
-    }
+  [DRIVING]: {
+    mode: DRIVING,
+    name: 'Driving',
+    icon: NavigationIcons.directionsDriving,
+  },
+  [WALKING]: {
+    mode: WALKING,
+    name: 'Walking',
+    icon: NavigationIcons.directionsWalk,
+  },
+  [TRANSIT]: {
+    mode: TRANSIT,
+    name: 'Transit',
+    icon: NavigationIcons.directionsTransit,
+  },
+  [BICYCLING]: {
+    mode: BICYCLING,
+    name: 'Bicycling',
+    icon: NavigationIcons.directionsBike,
+  },
 };
 
 /**
@@ -56,9 +56,7 @@ export const MODE_MAPPING = {
  */
 export const DEFAULT_MODES = [DRIVING, WALKING, TRANSIT, BICYCLING];
 
-
 /**
  * @default export
  */
-export default {DRIVING, WALKING, TRANSIT, BICYCLING}
-
+export default { DRIVING, WALKING, TRANSIT, BICYCLING };

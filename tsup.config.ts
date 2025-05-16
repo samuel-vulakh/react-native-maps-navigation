@@ -9,15 +9,15 @@ export default defineConfig({
   clean: true,
   treeshake: true,
   external: [
-    'react', 
-    'react-native', 
+    'react',
+    'react-native',
     'react-native-maps',
     '@react-native-community/geolocation',
     'geolib',
-    'react-native-optiongroup'
+    'react-native-optiongroup',
   ],
   platform: 'neutral',
   esbuildOptions(options) {
     options.jsx = 'automatic';
-  }
-}); 
+  },
+});

@@ -1,7 +1,7 @@
 /**
  * @imports
  */
-import { StyleSheet } from "react-native";
+import { StyleSheet } from 'react-native';
 
 interface ManeuverArrowProps {
   size: number;
@@ -18,11 +18,11 @@ const styles = (props: ManeuverArrowProps) =>
      * @maneuverView
      */
     maneuverArrow: {
-      fontFamily: "Navigation",
-      fontSize: props.size,
       color: props.color,
+      fontFamily: 'Navigation',
+      fontSize: props.size,
       opacity: props.opacity,
-      textAlign: "center",
+      textAlign: 'center',
     },
   });
 

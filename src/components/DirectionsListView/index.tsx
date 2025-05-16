@@ -1,49 +1,10 @@
 /**
  * @imports
  */
-import React, { Component } from "react";
-import { ScrollView, View, Text } from "react-native";
-import Styles from "./styles";
-import DirectionListViewItem from "./item";
-
-/**
- * Route address interface
- */
-interface RouteAddress {
-  address: string;
-  latitude?: number;
-  longitude?: number;
-}
-
-/**
- * Distance/Duration interface
- */
-interface DistanceDuration {
-  text: string;
-  value?: number;
-}
-
-/**
- * Step interface
- */
-interface RouteStep {
-  instructions: string;
-  distance: DistanceDuration;
-  duration: DistanceDuration;
-  maneuver?: any;
-  [key: string]: any;
-}
-
-/**
- * Route interface
- */
-interface Route {
-  origin: RouteAddress;
-  destination: RouteAddress;
-  duration: DistanceDuration;
-  distance: DistanceDuration;
-  steps: RouteStep[];
-}
+import React, { Component } from 'react';
+import { ScrollView, View, Text } from 'react-native';
+import Styles from './styles';
+import DirectionListViewItem from './item';
 
 /**
  * DirectionsListView props interface
@@ -112,12 +73,8 @@ export default class DirectionsListView extends Component<DirectionsListViewProp
         )}
 
         <View style={styles.directionDetailTravel}>
-          <Text style={styles.directionDetailTravelDuration}>
-            {this.props.route.duration.text}
-          </Text>
-          <Text style={styles.directionDetailTravelDistance}>
-            {this.props.route.distance.text}
-          </Text>
+          <Text style={styles.directionDetailTravelDuration}>{this.props.route.duration.text}</Text>
+          <Text style={styles.directionDetailTravelDistance}>{this.props.route.distance.text}</Text>
         </View>
 
         <View style={styles.directionDetailSectionContainer}>

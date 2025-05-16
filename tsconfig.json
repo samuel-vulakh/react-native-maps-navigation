@@ -18,17 +18,18 @@
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
-    "resolveJsonModule": true
+    "resolveJsonModule": true,
+    "baseUrl": "./src",
+    "paths": {
+      "@/*": ["src/*"],
+      "@components/*": ["./components/*"],
+      "@modules/*": ["./modules/*"],
+      "@constants/*": ["./constants/*"],
+      "@utils/*": ["./utils/*"],
+      "@types/*": ["./types/*"],
+      "@themes/*": ["./themes/*"]
+    }
   },
-  "include": [
-    "src/**/*",
-    "index.ts"
-  ],
-  "exclude": [
-    "node_modules/**/*",
-    "babel.config.js",
-    "metro.config.js",
-    "jest.config.js",
-    "dist"
-  ]
-} 
+  "include": ["src/**/*", "index.ts"],
+  "exclude": ["node_modules/**/*", "babel.config.js", "metro.config.js", "jest.config.js", "dist"]
+}

@@ -74,7 +74,7 @@ export default class RoutePolyline extends Component<RoutePolylineProps> {
         strokeColor={this.theme.strokeColor}
         coordinates={this.props.coordinates}
         lineCap={'round'}
-      />
+      />,
     ];
 
     if (this.theme.fillColor) {

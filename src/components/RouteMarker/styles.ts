@@ -1,22 +1,22 @@
 /**
  * @imports
  */
-import { StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
 import { NavigationIconsFont } from '../../constants/NavigationIcons';
 
 interface RouteMarkerProps {
-    fontSize?: number;
-    color?: string;
+  fontSize?: number;
+  color?: string;
 }
 
 /**
  * @styles
  */
-export default (props: RouteMarkerProps) => StyleSheet.create({
-
+export default (props: RouteMarkerProps) =>
+  StyleSheet.create({
     markerText: {
-        ...NavigationIconsFont,
-        fontSize: props.fontSize || 30,
-        color: props.color || '#000000',
+      ...NavigationIconsFont,
+      color: props.color || '#000000',
+      fontSize: props.fontSize || 30,
     },
-});
+  });

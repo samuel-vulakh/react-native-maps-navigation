@@ -1,14 +1,14 @@
 /**
  * @imports
  */
-import { StyleSheet } from "react-native";
+import { StyleSheet } from 'react-native';
 
 interface DurationDistanceViewProps {
   padding?: number;
   backgroundColor?: string;
-  flexDirection?: "row" | "column";
+  flexDirection?: 'row' | 'column';
   minHeight?: number;
-  alignItems?: "center" | "flex-start" | "flex-end";
+  alignItems?: 'center' | 'flex-start' | 'flex-end';
 }
 
 /**
@@ -19,23 +19,21 @@ const styles = (props: DurationDistanceViewProps) =>
     /**
      * @maneuverView
      */
-    durationDistanceView: {
-      padding: props.padding || 15,
-      backgroundColor: props.backgroundColor || "#f7f7f4",
-      flexDirection: props.flexDirection || "row",
-      minHeight: props.minHeight || 120,
-      alignItems: props.alignItems || "center",
+    durationDistanceClose: {
+      alignItems: 'flex-end',
+      flex: 0,
+      justifyContent: 'flex-end',
+      width: 30,
     },
-
     durationDistanceContent: {
       flex: 1,
     },
-
-    durationDistanceClose: {
-      flex: 0,
-      width: 30,
-      justifyContent: "flex-end",
-      alignItems: "flex-end",
+    durationDistanceView: {
+      alignItems: props.alignItems || 'center',
+      backgroundColor: props.backgroundColor || '#f7f7f4',
+      flexDirection: props.flexDirection || 'row',
+      minHeight: props.minHeight || 120,
+      padding: props.padding || 15,
     },
   });
 

@@ -2,7 +2,7 @@
  * @export
  */
 export default {
-    IDLE: 'IDLE',
-    ROUTE: 'ROUTE',
-    NAVIGATION: 'NAVIGATION'
+  IDLE: 'IDLE',
+  ROUTE: 'ROUTE',
+  NAVIGATION: 'NAVIGATION',
 };

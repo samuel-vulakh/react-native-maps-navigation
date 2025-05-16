@@ -1,7 +1,8 @@
 /**
  * @imports
  */
-import { StyleSheet } from "react-native";
+import { StyleSheet } from 'react-native';
+import { Colors } from '../../themes/Colors';
 
 interface DirectionsListViewStyleProps {
   fontFamily: string;
@@ -16,28 +17,55 @@ export default (props: DirectionsListViewStyleProps) =>
     /**
      * @directionDetailHeader
      */
+    bold: {
+      flexWrap: 'wrap',
+      fontFamily: props.fontFamilyBold || props.fontFamily,
+      fontSize: 16,
+      fontWeight: 'bold',
+    },
+    directionDetailContent: {
+      flexDirection: 'column',
+      flex: 1,
+    },
     directionDetailHeader: {
+      backgroundColor: Colors.surface,
+      flexDirection: 'column',
       padding: 25,
       paddingBottom: 10,
-      backgroundColor: "#f7f7f4",
-      flexDirection: "column",
     },
-
-    directionDetailHeaderSection: {
-      marginBottom: 15,
-      flexDirection: "column",
-    },
-
-    directionDetailHeaderAddressText: {
-      fontSize: 16,
-      fontFamily: props.fontFamily,
-    },
-
     directionDetailHeaderAddressLabel: {
-      fontSize: 13,
-      opacity: 0.7,
-      fontWeight: "bold",
       fontFamily: props.fontFamily,
+      fontSize: 13,
+      fontWeight: 'bold',
+      opacity: 0.7,
+    },
+    directionDetailHeaderAddressText: {
+      fontFamily: props.fontFamily,
+      fontSize: 16,
+    },
+    directionDetailHeaderSection: {
+      flexDirection: 'column',
+      marginBottom: 15,
+    },
+    directionDetailIconContainer: {
+      alignItems: 'center',
+      flex: 0,
+      justifyContent: 'flex-start',
+      width: 50,
+    },
+
+    directionDetailSection: {
+      borderColor: Colors.border,
+      borderTopWidth: 1,
+      flexDirection: 'row',
+      flex: 1,
+      marginBottom: 20,
+      paddingTop: 20,
+    },
+    directionDetailSectionContainer: {
+      flex: 1,
+      margin: 25,
+      marginTop: 0,
     },
 
     /**
@@ -46,78 +74,33 @@ export default (props: DirectionsListViewStyleProps) =>
     directionDetailTravel: {
       margin: 25,
     },
-
-    directionDetailTravelDuration: {
-      fontSize: 32,
-      fontFamily: props.fontFamily,
-      color: "#387bc1",
-    },
-
     directionDetailTravelDistance: {
-      fontSize: 22,
       fontFamily: props.fontFamily,
+      fontSize: 22,
       opacity: 0.8,
     },
 
-    /**
-     * @fonts
-     */
-
-    bold: {
-      fontWeight: "bold",
-      fontFamily: props.fontFamilyBold || props.fontFamily,
-      fontSize: 16,
-      flexWrap: "wrap",
-    },
-
-    regular: {
+    directionDetailTravelDuration: {
+      color: Colors.primary,
       fontFamily: props.fontFamily,
-      fontSize: 16,
-      flexWrap: "wrap",
+      fontSize: 32,
     },
-
-    extra: {
-      fontFamily: props.fontFamily,
-      fontSize: 13,
-      flexWrap: "wrap",
-      color: "#387bc1",
-    },
-
     durationDistance: {
+      flexWrap: 'wrap',
       fontFamily: props.fontFamily,
       fontSize: 14,
       opacity: 0.8,
-      flexWrap: "wrap",
+    },
+    extra: {
+      color: Colors.primary,
+      flexWrap: 'wrap',
+      fontFamily: props.fontFamily,
+      fontSize: 13,
     },
 
-    /**
-     * @directionDetail
-     */
-
-    directionDetailSectionContainer: {
-      margin: 25,
-      marginTop: 0,
-      flex: 1,
-    },
-
-    directionDetailSection: {
-      borderColor: "#e6e6e6",
-      borderTopWidth: 1,
-      paddingTop: 20,
-      marginBottom: 20,
-      flexDirection: "row",
-      flex: 1,
-    },
-
-    directionDetailIconContainer: {
-      width: 50,
-      flex: 0,
-      justifyContent: "flex-start",
-      alignItems: "center",
-    },
-
-    directionDetailContent: {
-      flexDirection: "column",
-      flex: 1,
+    regular: {
+      flexWrap: 'wrap',
+      fontFamily: props.fontFamily,
+      fontSize: 16,
     },
   });

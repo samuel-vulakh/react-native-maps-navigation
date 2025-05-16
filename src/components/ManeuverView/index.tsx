@@ -1,55 +1,12 @@
 /**
  * @imports
  */
-import React, { Component } from "react";
-import { ScrollView, View, TouchableOpacity, Text } from "react-native";
-import Styles from "./styles";
-import ManeuverArrow from "../ManeuverArrow";
-import ManeuverLabel from "../ManeuverLabel";
-import CloseButton from "../CloseButton";
-
-/**
- * Maneuver type definition
- */
-interface Maneuver {
-  type?: string;
-  modifier?: string;
-  [key: string]: any;
-}
-
-/**
- * Step type definition
- */
-interface Step {
-  instructions: string;
-  maneuver: Maneuver;
-  distance?: {
-    text?: string;
-    value?: number;
-  };
-  duration?: {
-    text?: string;
-    value?: number;
-  };
-  [key: string]: any;
-}
-
-/**
- * ManeuverView props interface
- */
-interface ManeuverViewProps {
-  step: Step;
-  fontFamily?: string;
-  fontFamilyBold?: string;
-  fontSize?: number;
-  fontColor?: string;
-  arrowSize?: number;
-  arrowColor?: string;
-  backgroundColor?: string;
-  withCloseButton?: boolean;
-  onClose?: () => void;
-  onPress?: () => void;
-}
+import React, { Component } from 'react';
+import { View, TouchableOpacity } from 'react-native';
+import Styles from './styles';
+import ManeuverArrow from './components/ManeuverArrow';
+import ManeuverLabel from './components/ManeuverLabel';
+import CloseButton from '../CloseButton';
 
 /**
  * @component
@@ -62,10 +19,10 @@ export default class ManeuverView extends Component<ManeuverViewProps> {
     step: undefined,
     fontFamily: undefined,
     fontFamilyBold: undefined,
-    backgroundColor: "#f7f7f4",
+    backgroundColor: '#f7f7f4',
     fontSize: 20,
     arrowSize: 50,
-    arrowColor: "#545455",
+    arrowColor: '#545455',
     withCloseButton: false,
     onClose: undefined,
     onPress: undefined,
@@ -85,8 +42,7 @@ export default class ManeuverView extends Component<ManeuverViewProps> {
    */
   render() {
     const styles = Styles({
-      backgroundColor:
-        this.props.backgroundColor ?? ManeuverView.defaultProps.backgroundColor,
+      backgroundColor: this.props.backgroundColor ?? ManeuverView.defaultProps.backgroundColor,
     });
 
     const step = this.props.step;
@@ -109,17 +65,17 @@ export default class ManeuverView extends Component<ManeuverViewProps> {
             {...this.props}
             instructions={step.instructions}
             fontSize={this.props.fontSize}
-            color={this.props.fontColor}
+            fontColor={this.props.fontColor}
           />
         </View>
         {!this.props.withCloseButton ? null : (
           <View style={styles.maneuverClose}>
-            <CloseButton
-              onPress={() => this.props.onClose && this.props.onClose()}
-            />
+            <CloseButton onPress={() => this.props.onClose && this.props.onClose()} />
           </View>
         )}
       </TouchableOpacity>
     );
   }
 }
+
+export { ManeuverArrow, ManeuverLabel };
