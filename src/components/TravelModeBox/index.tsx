@@ -2,40 +2,45 @@
  * @imports
  */
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { View, TouchableOpacity, Text } from 'react-native';
+// @ts-ignore
 import OptionGroupBox from 'react-native-optiongroup';
-import {DEFAULT_MODES, MODE_MAPPING, DRIVING} from '../../constants/TravelModes';
-import {NavigationIconsFont} from '../../constants/NavigationIcons';
+import { DEFAULT_MODES, MODE_MAPPING, DRIVING, WALKING, TRANSIT, BICYCLING } from '../../constants/TravelModes';
+import { NavigationIconsFont } from '../../constants/NavigationIcons';
+
+// Travel mode type
+type TravelMode = typeof DRIVING | typeof WALKING | typeof TRANSIT | typeof BICYCLING;
+
+// Define the travel mode option interface
+interface TravelModeOption {
+    mode: string;
+    name: string;
+    icon: string;
+}
+
+// Define the style and behavior props
+interface TravelModeBoxProps {
+    backgroundColor?: string;
+    borderColor?: string;
+    borderWidth?: number;
+    borderRadius?: number;
+    contentPadding?: number;
+    inverseTextColor?: string;
+    modes?: TravelMode[];
+    selected?: TravelMode;
+    defaultValue?: TravelMode;
+    style?: any;
+    onChange?: (mode: TravelMode) => void;
+    theme?: string;
+    invertKeyLabel?: boolean;
+    fontFamily?: string;
+    fontSize?: number;
+    useIcons?: boolean;
+}
 
 /**
  * @component
  */
-export default class TravelModeBox extends Component {
-
-    /**
-     * propTypes
-     * @type {}
-     */
-    static propTypes = {
-        backgroundColor: PropTypes.string,
-        borderColor: PropTypes.string,
-        borderWidth: PropTypes.number,
-        borderRadius: PropTypes.number,
-        contentPadding: PropTypes.number,
-        inverseTextColor: PropTypes.string,
-        modes: PropTypes.array,
-        selected: PropTypes.any,
-        defaultValue: PropTypes.any,
-        style: PropTypes.any,
-        onChange: PropTypes.func,
-        theme: PropTypes.string,
-        invertKeyLabel: PropTypes.bool,
-        fontFamily: PropTypes.string,
-        fontSize: PropTypes.number,
-        useIcons: PropTypes.bool,
-    }
-
+export default class TravelModeBox extends Component<TravelModeBoxProps> {
     /**
      * defaultProps
      * @type {}
@@ -63,20 +68,15 @@ export default class TravelModeBox extends Component {
      * @constructor
      * @param props
      */
-    constructor(props)
-    {
+    constructor(props: TravelModeBoxProps) {
         super(props);
     }
 
-    /**
-     * render
-     * @returns {XML}
-     */
-    render()
-    {
-        const options = [];
 
-        this.props.modes.map(mode => {
+    render() {
+        const options: TravelModeOption[] = [];
+
+        this.props.modes?.map(mode => {
             if (MODE_MAPPING[mode]) {
                 options.push(MODE_MAPPING[mode])
             }

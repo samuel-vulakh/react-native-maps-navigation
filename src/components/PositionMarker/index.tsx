@@ -4,47 +4,50 @@
 import React, { Component } from 'react';
 import { Text, View } from 'react-native';
 import { Marker } from 'react-native-maps';
-import connectTheme from '../../themes'
-import Styles from './styles';
-import PropTypes from "prop-types";
-import { POSITION_DOT, POSITION_ARROW } from "../../constants/MarkerTypes";
+import connectTheme, { ThemeMarker, ThemeSettings } from '../../themes'
+import Styles, { PositionMarkerStyles } from './styles';
+import { MarkerTypes, MarkerType } from "../../constants/MarkerTypes";
 
+interface PositionMarkerProps {
+    coordinate?: {
+        latitude: number;
+        longitude: number;
+    };
+    size?: number;
+    fontSize?: number;
+    type?: MarkerType;
+    color?: string;
+    angle?: number;
+    backgroundColor?: string;
+    borderColor?: string;
+    borderWidth?: number;
+    theme?: Partial<ThemeSettings>;
+    positionMarkerText?: string;
+}
 
 /**
  * @class
  */
-export default class PositionMarker extends Component {
-
+export default class PositionMarker extends Component<PositionMarkerProps> {
     /**
-     * propTypes
-     * @type {}
+     * theme
      */
-    static propTypes = {
-        coordinate: PropTypes.object,
-        size: PropTypes.number,
-        fontSize: PropTypes.number,
-        type: PropTypes.any,
-        color: PropTypes.string,
-        angle: PropTypes.number,
-        backgroundColor: PropTypes.string,
-        borderColor: PropTypes.string,
-        borderWidth: PropTypes.number,
-    }
+    theme: ThemeMarker;
 
     /**
      * defaultProps
-     * @type {}
      */
     static defaultProps = {
         coordinate: undefined,
         size: 40,
         fontSize: 30,
-        type: POSITION_DOT,
+        type: MarkerTypes.POSITION_DOT,
         color: '#252525',
         angle: 60,
         borderWidth: 0,
         borderColor: undefined,
-        backgroundColor: '#252525'
+        backgroundColor: '#252525',
+        positionMarkerText: 'A'
     }
 
 
@@ -52,7 +55,7 @@ export default class PositionMarker extends Component {
      * constructor
      * @param props
      */
-    constructor(props)
+    constructor(props: PositionMarkerProps)
     {
         super(props);
     }
@@ -66,13 +69,13 @@ export default class PositionMarker extends Component {
     {
         if(!this.props.coordinate) return null;
 
-        const type = this.props.type;
+        const type = this.props.type || MarkerTypes.POSITION_DOT;
 
         this.theme = connectTheme(this.props.theme).Markers[type];
 
         const styles = Styles(Object.assign({}, this.props, this.theme));
 
-        return (type == POSITION_ARROW) ? this.renderArrow(styles) : this.renderDot(styles);
+        return (type === MarkerTypes.POSITION_ARROW) ? this.renderArrow(styles) : this.renderDot(styles);
     }
 
     /**
@@ -80,11 +83,11 @@ export default class PositionMarker extends Component {
      * @param styles
      * @returns {*}
      */
-    renderArrow(styles)
+    renderArrow(styles: PositionMarkerStyles)
     {
         return (
             <Marker
-                coordinate={this.props.coordinate}
+                coordinate={this.props.coordinate!}
                 flat={false}
             >
                 <View style={styles.positionMarkerArrow}>
@@ -100,11 +103,11 @@ export default class PositionMarker extends Component {
      * @param styles
      * @returns {*}
      */
-    renderDot(styles) {
+    renderDot(styles: PositionMarkerStyles) {
 
         return (
             <Marker
-                coordinate={this.props.coordinate}
+                coordinate={this.props.coordinate!}
                 flat={false}
             >
                 <Text style={styles.positionMarkerText}>

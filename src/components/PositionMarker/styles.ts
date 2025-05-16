@@ -5,10 +5,18 @@ import { StyleSheet} from 'react-native';
 import { NavigationIconsFont } from '../../constants/NavigationIcons';
 
 
+interface PositionMarkerProps {
+    fontSize?: number;
+    color?: string;
+    backgroundColor?: string;
+    size?: number;
+    angle?: number;
+}
+
 /**
  * @styles
  */
-export default props => StyleSheet.create({
+const styles = (props: PositionMarkerProps) => StyleSheet.create({
 
     positionMarkerText: {
         ...NavigationIconsFont,
@@ -28,3 +36,8 @@ export default props => StyleSheet.create({
         ]
     }
 });
+
+export type PositionMarkerStyles = ReturnType<typeof styles>;
+
+
+export default styles;

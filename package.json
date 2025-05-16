@@ -1,8 +1,14 @@
 {
   "name": "react-native-maps-navigation-ts",
-  "version": "0.0.14",
+  "version": "0.0.15",
   "description": "A helper and component library for react-native-maps that enables navigation support",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "assets"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/flyandi/react-native-maps-navigation.git"
@@ -19,7 +25,7 @@
     "android",
     "react-component"
   ],
-  "author": "Andy Schwarz <flyandi@yahoo.com> (http://flyandi.net)",
+  "author": "Samuel Vulakh <samuel.vulakh@gmail.com> (https://github.com/samuel-vulakh)",
   "license": {
     "type": "MIT",
     "url": "https://github.com/samuel-vulakh/react-native-maps-navigation/blob/master/LICENSE"
@@ -28,7 +34,16 @@
     "url": "https://github.com/samuel-vulakh/react-native-maps-navigation/issues"
   },
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "clean": "rimraf dist",
+    "build": "tsup",
+    "build:tsc": "tsc",
+    "dev": "tsup --watch",
+    "dev:tsc": "tsc --watch",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
+    "prepublishOnly": "npm run build"
   },
   "jest": {
     "preset": "react-native"
@@ -41,6 +56,7 @@
   },
   "dependencies": {
     "@react-native-community/geolocation": "^3.4.0",
+    "fsevents": "^2.3.3",
     "geolib": "^3.0.2",
     "prop-types": "^15.6.2",
     "react-native-optiongroup": "^0.0.7"
@@ -49,5 +65,19 @@
     "assets": [
       "./assets/fonts"
     ]
-  }
+  },
+  "devDependencies": {
+    "@types/react": "^19.1.4",
+    "@types/react-native": "^0.72.8",
+    "@typescript-eslint/eslint-plugin": "^7.4.0",
+    "@typescript-eslint/parser": "^7.4.0",
+    "concurrently": "^8.2.2",
+    "eslint": "^8.57.0",
+    "eslint-plugin-react": "^7.34.1",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-native": "^4.1.0",
+    "tsup": "^8.5.0",
+    "typescript": "^5.8.3"
+  },
+  "packageManager": "pnpm@10.8.0+sha512.0e82714d1b5b43c74610193cb20734897c1d00de89d0e18420aebc5977fa13d780a9cb05734624e81ebd81cc876cd464794850641c48b9544326b5622ca29971"
 }

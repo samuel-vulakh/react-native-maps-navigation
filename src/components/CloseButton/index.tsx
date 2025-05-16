@@ -2,61 +2,51 @@
  * @imports
  */
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { Text, TouchableOpacity } from 'react-native';
 import Styles from './styles';
 import NavigationIcons from "../../constants/NavigationIcons";
-import {DEFAULT_DIRECTION_TYPE} from "../../constants/DirectionTypes";
 
+/**
+ * CloseButton props interface
+ */
+interface CloseButtonProps {
+    size?: number;
+    opacity?: number;
+    color?: string;
+    onPress?: () => void;
+}
 
 /**
  * @component
  */
-export default class CloseButton extends Component {
-
-    /**
-     * propTypes
-     * @type {}
-     */
-    static propTypes = {
-        maneuver: PropTypes.object,
-        size: PropTypes.number,
-        opacity: PropTypes.number,
-        color: PropTypes.any,
-    }
-
+export default class CloseButton extends Component<CloseButtonProps> {
     /**
      * defaultProps
-     * @type {}
      */
     static defaultProps = {
-        maneuver: undefined,
         size: 25,
         opacity: 1,
         color: '#000000',
     }
 
-
     /**
      * @constructor
      * @param props
      */
-    constructor(props)
-    {
+    constructor(props: CloseButtonProps) {
         super(props);
     }
 
-
     /**
      * render
-     * @returns {XML}
+     * @returns {JSX.Element}
      */
-    render()
-    {
-        const styles = Styles(this.props);
+    render() {
+        const { size = 25, opacity = 1, color = '#000000', onPress } = this.props;
+        const styles = Styles({ size, opacity, color });
 
         return (
-            <TouchableOpacity>
+            <TouchableOpacity onPress={onPress}>
                 <Text style={styles.closeButtonText}>
                     {NavigationIcons.close}
                 </Text>

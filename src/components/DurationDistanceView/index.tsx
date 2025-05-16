@@ -2,37 +2,42 @@
  * @imports
  */
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { ScrollView, View, TouchableOpacity, Text } from 'react-native';
-import Styles from './styles';
+import Styles, { DurationDistanceViewStyles } from './styles';
 import CloseButton from "../CloseButton";
-import DurationDistanceLabel from "../DurationDistanceLabel";
 
+interface Step {
+    distance?: {
+        text: string;
+    };
+    duration?: {
+        text: string;
+    };
+}
+
+interface DurationDistanceViewProps {
+    step?: Step;
+    fontFamily?: string;
+    fontFamilyBold?: string;
+    fontSize?: number;
+    arrowSize?: number;
+    arrowColor?: string;
+    withCloseButton?: boolean;
+    onClose?: () => void;
+    onPress?: () => void;
+    padding?: number;
+    backgroundColor?: string;
+    flexDirection?: "row" | "column";
+    minHeight?: number;
+    alignItems?: "center" | "flex-start" | "flex-end";
+}
 
 /**
  * @component
  */
-export default class ManeuverView extends Component {
-
-    /**
-     * propTypes
-     * @type {}
-     */
-    static propTypes = {
-        step: PropTypes.any.isRequired,
-        fontFamily: PropTypes.string,
-        fontFamilyBold: PropTypes.string,
-        fontSize: PropTypes.number,
-        arrowSize: PropTypes.number,
-        arrowColor: PropTypes.string,
-        withCloseButton: PropTypes.bool,
-        onClose: PropTypes.func,
-        onPress: PropTypes.func,
-    }
-
+export default class DurationDistanceView extends Component<DurationDistanceViewProps> {
     /**
      * defaultProps
-     * @type {}
      */
     static defaultProps = {
         step: undefined,
@@ -46,17 +51,14 @@ export default class ManeuverView extends Component {
         onPress: undefined,
     }
 
-
     /**
      * @constructor
      * @param props
      */
-    constructor(props)
+    constructor(props: DurationDistanceViewProps)
     {
         super(props);
-
     }
-
 
     /**
      * render

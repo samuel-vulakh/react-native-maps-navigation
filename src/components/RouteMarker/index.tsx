@@ -4,20 +4,33 @@
 import React, { Component } from 'react';
 import { Text } from 'react-native';
 import { Marker } from 'react-native-maps';
-import connectTheme from '../../themes'
+import connectTheme, { ThemeMarker, ThemeSettings } from '../../themes'
 import Styles from './styles';
+import { MarkerType } from '../../constants/MarkerTypes';
 
+interface RouteMarkerProps {
+    coordinate: {
+        latitude: number;
+        longitude: number;
+    };
+    type: MarkerType;
+    theme: Partial<ThemeSettings>;
+}
 
 /**
  * @class
  */
-export default class RouterMarker extends Component {
+export default class RouterMarker extends Component<RouteMarkerProps> {
+    /**
+     * theme
+     */
+    theme: ThemeMarker
 
     /**
      * constructor
      * @param props
      */
-    constructor(props) {
+    constructor(props: RouteMarkerProps) {
         super(props);
 
         this.theme = connectTheme(props.theme).Markers[this.props.type];

@@ -2,31 +2,23 @@
  * @imports
  */
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { View, TouchableOpacity, Text } from 'react-native';
-import Styles from './styles';
+import { View, Text } from 'react-native';
+import Styles, { ManeuverLabelStyles } from './styles';
 
+interface ManeuverLabelProps {
+    instructions: string;
+    fontFamily?: string;
+    fontFamilyBold?: string;
+    fontSize?: number;
+    fontColor?: string;
+}
 
 /**
  * @component
  */
-export default class ManeuverLabel extends Component {
-
-    /**
-     * propTypes
-     * @type {}
-     */
-    static propTypes = {
-        instructions: PropTypes.string,
-        fontFamily: PropTypes.string,
-        fontFamilyBold: PropTypes.string,
-        fontSize: PropTypes.number,
-        fontColor: PropTypes.string
-    }
-
+export default class ManeuverLabel extends Component<ManeuverLabelProps> {
     /**
      * defaultProps
-     * @type {}
      */
     static defaultProps = {
         instructions: '',
@@ -40,7 +32,7 @@ export default class ManeuverLabel extends Component {
      * @constructor
      * @param props
      */
-    constructor(props)
+    constructor(props: ManeuverLabelProps)
     {
         super(props);
     }
@@ -50,20 +42,20 @@ export default class ManeuverLabel extends Component {
      * @param styles
      * @returns {*}
      */
-    getParsedInstructions(styles)
+    getParsedInstructions(styles: ManeuverLabelStyles)
     {
-        const parts = [];
+        const parts: React.ReactElement[] = [];
 
         const regex = /(\w+)|<(.*?)>(.*?)<\/.*?>/g;
 
-        const mapping = {
+        const mapping: Record<string, any> = {
             r: styles.regular,
             b: styles.bold,
             d: styles.durationDistance,
             div: styles.extra,
         };
 
-        let m;
+        let m: RegExpExecArray | null;
         let last = false;
         while((m = regex.exec(this.props.instructions))) {
 
@@ -75,7 +67,7 @@ export default class ManeuverLabel extends Component {
             if(m[2]) {
                 let tag = m[2].split(" ")[0];
 
-                if(tag == "div") m[3] = '\n' + m[3];
+                if(tag === "div") m[3] = '\n' + m[3];
 
                 parts.push(<Text key={m.index} style={mapping[tag]}>{m[3]}{last ? '.' : ' '}</Text>);
 

@@ -1,14 +1,23 @@
 /**
  * @imports
  */
-import { StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
 import { NavigationIconsFont } from '../../constants/NavigationIcons';
 
+/**
+ * Props interface for styles
+ */
+interface StyleProps {
+    size?: number;
+    opacity?: number;
+    fontFamily?: string;
+    fontSize?: number;
+}
 
 /**
  * @styles
  */
-export default props => StyleSheet.create({
+export default (props: StyleProps) => StyleSheet.create({
 
     /**
      * @travelModeLabelContainer

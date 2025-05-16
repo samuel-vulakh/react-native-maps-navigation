@@ -1,15 +1,41 @@
 /**
  * @import
  */
-import * as MarkerTypes from '../constants/MarkerTypes';
-import * as PolylineTypes from '../constants/PolylineTypes';
+import { MarkerTypes, MarkerType } from '../constants/MarkerTypes';
+import { PolylineTypes, PolylineType } from '../constants/PolylineTypes';
 import NavigationIcons from '../constants/NavigationIcons';
 
 /**
- * defaultThemeSettings
- * @type {{[p: string]: *}}
+ * Theme interfaces
  */
-export const defaultThemeSettings = {
+export interface ThemeMarker {
+    icon: string;
+    color: string;
+    fontSize?: number;
+    size?: number;
+    backgroundColor?: string;
+}
+
+export interface ThemePolyline {
+    fillColor: string;
+    strokeColor: string;
+    strokeWidth: number;
+    borderWidth: number;
+}
+
+export interface ThemeSettings {
+    Markers: {
+        [key in MarkerType]: ThemeMarker;
+    };
+    Polylines: {
+        [key in PolylineType]: ThemePolyline;
+    };
+}
+
+/**
+ * defaultThemeSettings
+ */
+export const defaultThemeSettings: ThemeSettings = {
 
     /**
      * @markers
@@ -55,6 +81,18 @@ export const defaultThemeSettings = {
             strokeWidth: 18,
             borderWidth: 4,
         },
+        [PolylineTypes.PENDING]: {
+            fillColor: '#00b3fd',
+            strokeColor: '#387bc1',
+            strokeWidth: 18,
+            borderWidth: 4,
+        },
+        [PolylineTypes.NEXT]: {
+            fillColor: '#00b3fd',
+            strokeColor: '#387bc1',
+            strokeWidth: 18,
+            borderWidth: 4,
+        },
     }
 
 };
@@ -62,12 +100,11 @@ export const defaultThemeSettings = {
 
 /**
  * Theme Combiner
- * @param theme
- * @returns {*}
+ * @param theme - Optional custom theme to merge with default theme
+ * @returns Combined theme settings
  */
-const connectTheme = (theme) =>
-{
-    return Object.assign({}, defaultThemeSettings, theme);
+const connectTheme = (theme?: Partial<ThemeSettings>): ThemeSettings => {
+    return Object.assign({}, defaultThemeSettings, theme || {});
 };
 
 /**

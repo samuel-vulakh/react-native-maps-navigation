@@ -16,10 +16,6 @@ import NavigationModes from './src/constants/NavigationModes';
 
 import Geocoder from './src/modules/Geocoder';
 
-
-
-
-
 /**
  * @exports
  */
@@ -41,4 +37,4 @@ export {
 /**
  * @default export
  */
-export default MapViewNavigation;
+export default MapViewNavigation; 
