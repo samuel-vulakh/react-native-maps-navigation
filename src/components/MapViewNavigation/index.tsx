@@ -216,7 +216,13 @@ export default class MapViewNavigation extends Component<
     this.state = {
       route: false,
       markers: [],
-      position: {} as Position,
+      position: {
+        coordinate: {
+          latitude: 0,
+          longitude: 0,
+        },
+        heading: 0,
+      },
       navigationMode: NavigationModes.IDLE,
       travelMode: TravelModes.DRIVING,
       stepIndex: false,
