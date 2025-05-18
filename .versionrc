@@ -16,4 +16,4 @@
   "issueUrlFormat": "{{host}}/{{owner}}/{{repository}}/issues/{{id}}",
   "userUrlFormat": "{{host}}/{{user}}",
   "releaseCommitMessageFormat": "chore(release): {{currentTag}}"
-} 
+}

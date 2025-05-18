@@ -724,16 +724,16 @@ export default class MapViewNavigation extends Component<
 
   /**
    * @render
-   * @returns {*[]}
+   * @returns {*}
    */
-  render() {
-    const result = [
-      this.getRouteMarkers(this.state.route),
-      this.getRoutePolylines(this.state.route),
-      this.getPositionMarker(this.state.position, this.state.navigationMode),
-      this.getDebugShapes(this.state.route),
-    ];
-
-    return result;
+  render(): React.ReactElement {
+    return (
+      <>
+        {this.getRouteMarkers(this.state.route)}
+        {this.getRoutePolylines(this.state.route)}
+        {this.getPositionMarker(this.state.position, this.state.navigationMode)}
+        {this.getDebugShapes(this.state.route)}
+      </>
+    );
   }
 }
