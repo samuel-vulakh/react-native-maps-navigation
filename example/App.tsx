@@ -17,7 +17,7 @@ import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 import MapViewNavigation, { NavigationModes, TravelModes } from 'react-native-maps-navigation-ts';
 
 // Replace with your Google Maps API key
-const GOOGLE_MAPS_APIKEY = 'AIzaSyCp52FUTCxx6Zy5TXU6csSQAHfZEWsEw9c';
+const GOOGLE_MAPS_APIKEY = '';
 
 function App(): React.JSX.Element {
   const mapRef = useRef<MapView>(null);
