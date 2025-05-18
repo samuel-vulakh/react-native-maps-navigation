@@ -1,6 +1,6 @@
 {
   "name": "react-native-maps-navigation-ts",
-  "version": "0.0.15",
+  "version": "0.1.0",
   "description": "A helper and component library for react-native-maps that enables navigation support",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -103,6 +103,7 @@
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-native": "^5.0.0",
+    "gh-release": "^7.0.2",
     "husky": "^9.1.7",
     "lint-staged": "^15.2.0",
     "prettier": "^3.2.5",
