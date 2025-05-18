@@ -22,3 +22,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Fixed
 
 - Various type issues in components
+
+## [0.1.0] - 2025-05-18
+
+### Fixed
+
+- Fixed Github Workflows
